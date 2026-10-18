@@ -1,0 +1,7 @@
+# Foundry build artifacts
+out/
+cache/
+broadcast/
+
+# Locally installed test dependency (not committed by the CI setup)
+lib/
