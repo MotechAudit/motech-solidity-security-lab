@@ -27,9 +27,15 @@ The first command installs the Foundry test helpers locally. It does not need to
 
 The vulnerable example makes an external call before updating its accounting. The mitigation example follows checks-effects-interactions by clearing the caller's recorded balance before transferring ETH.
 
-## Contributing
+## Contribute
 
-We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements.
+
+- Start with [Good first issue #1: Access-control vulnerability example](https://github.com/MotechAudit/motech-solidity-security-lab/issues/1).
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+- Report a bug or suggest an improvement using the repository's **Issues** tab.
+
+Please do not submit customer code, confidential audit reports, private findings, secrets, or API keys.
 
 ## Scope and disclaimer
 
