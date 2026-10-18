@@ -1,0 +1,25 @@
+---
+name: Security example proposal
+about: Propose a new vulnerability example, mitigation, or test
+title: "[Example]: "
+labels: enhancement
+assignees: ""
+---
+
+## Security concept
+
+What vulnerability or security property would this example teach?
+
+## Impact and assumptions
+
+When is it relevant, and what assumptions does the example require?
+
+## Proposed test
+
+How can the vulnerable behavior be reproduced and how should the mitigation be tested?
+
+## References
+
+Link public references if available.
+
+Do not include client-confidential code, private audit reports, secrets, or credentials.
