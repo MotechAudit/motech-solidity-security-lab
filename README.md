@@ -27,6 +27,13 @@ The first command installs the Foundry test helpers locally. It does not need to
 
 The vulnerable example makes an external call before updating its accounting. The mitigation example follows checks-effects-interactions by clearing the caller's recorded balance before transferring ETH.
 
+## Access-control example
+
+- [VulnerableFeeVault.sol](src/access-control/VulnerableFeeVault.sol) — intentionally omits authorization on a privileged setter.
+- [FixedFeeVault.sol](src/access-control/FixedFeeVault.sol) — restricts fee-recipient changes to the owner.
+- [AccessControl.t.sol](test/AccessControl.t.sol) — demonstrates unauthorized fee redirection and tests the fix.
+- [Case notes](docs/access-control.md) — impact, mitigation, and limitations.
+
 ## Contribute
 
 We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements.
