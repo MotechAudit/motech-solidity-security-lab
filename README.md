@@ -38,7 +38,7 @@ The vulnerable example makes an external call before updating its accounting. Th
 
 We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements.
 
-- Start with [Good first issue #1: Access-control vulnerability example](https://github.com/MotechAudit/motech-solidity-security-lab/issues/1).
+- Start with [Good first issue #2: Test access control on fee withdrawals](https://github.com/MotechAudit/motech-solidity-security-lab/issues/2).
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 - Report a bug or suggest an improvement using the repository's **Issues** tab.
 
