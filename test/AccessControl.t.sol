@@ -6,6 +6,8 @@ import "../src/access-control/VulnerableFeeVault.sol";
 import "../src/access-control/FixedFeeVault.sol";
 
 contract AccessControlTest is Test {
+    receive() external payable {}
+
     address private constant ATTACKER = address(0xBEEF);
     uint256 private constant FEES = 10 ether;
 
