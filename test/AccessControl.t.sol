@@ -55,4 +55,43 @@ contract AccessControlTest is Test {
         assertEq(ATTACKER.balance, attackerBalanceBefore);
         assertEq(vault.accruedFees(), 0);
     }
+
+    function testNonOwnerCannotWithdrawFeesFromFixedVault() public {
+        vm.deal(address(this), FEES);
+        vm.deal(ATTACKER, 1 ether);
+
+        FixedFeeVault vault = new FixedFeeVault(address(this));
+        vault.fund{value: FEES}();
+
+        uint256 ownerBalanceBefore = address(this).balance;
+        uint256 attackerBalanceBefore = ATTACKER.balance;
+        uint256 vaultBalanceBefore = address(vault).balance;
+        uint256 feesBefore = vault.accruedFees();
+        address recipientBefore = vault.feeRecipient();
+
+        vm.expectRevert(FixedFeeVault.Unauthorized.selector);
+        vm.prank(ATTACKER);
+        vault.withdrawFees();
+
+        assertEq(address(this).balance, ownerBalanceBefore, "owner balance should not change");
+        assertEq(ATTACKER.balance, attackerBalanceBefore, "attacker balance should not change");
+        assertEq(address(vault).balance, vaultBalanceBefore, "vault balance should remain");
+        assertEq(vault.accruedFees(), feesBefore, "accounting should remain");
+        assertEq(vault.feeRecipient(), recipientBefore, "recipient should remain");
+    }
+
+    function testOwnerCannotSetZeroFeeRecipient() public {
+        FixedFeeVault vault = new FixedFeeVault(address(this));
+        address recipientBefore = vault.feeRecipient();
+
+        vm.expectRevert(FixedFeeVault.InvalidRecipient.selector);
+        vault.setFeeRecipient(address(0));
+
+        assertEq(vault.feeRecipient(), recipientBefore);
+    }
+
+    function testConstructorRejectsZeroInitialFeeRecipient() public {
+        vm.expectRevert(FixedFeeVault.InvalidRecipient.selector);
+        new FixedFeeVault(address(0));
+    }
 }
