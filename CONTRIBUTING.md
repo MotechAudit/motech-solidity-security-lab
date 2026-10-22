@@ -1,21 +1,33 @@
 # Contributing
 
-Thanks for helping improve the Motech Audit Solidity Security Lab.
+Thanks for helping improve the Motech Audit Solidity Security Lab. The goal is to make smart-contract security lessons practical, reproducible, and easy for other developers to verify.
 
-## Good first contributions
+## A simple first contribution
+
+1. Pick a task from the repository's [open issues](https://github.com/MotechAudit/motech-solidity-security-lab/issues), ideally one marked **good first issue**.
+2. Comment on the issue before starting so we can avoid duplicate work and clarify the intended scope.
+3. Keep the change focused. Link the relevant contract, test, or documentation.
+4. Run `forge test -vv` locally and include the result in your pull request.
+5. Open a pull request explaining what changed, why it matters, and how you verified it.
+
+Not every contribution needs to add code. Clear reproduction steps, documentation improvements, and focused test cases are useful contributions too.
+
+## What makes a good contribution?
 
 - Add a small, self-contained vulnerability example with a reproducible test.
-- Include both the vulnerable behavior and the specific mitigation being demonstrated.
+- Pair vulnerable behavior with the specific mitigation being demonstrated, where relevant.
 - Explain impact, preconditions, and limitations in plain language.
-- Improve existing tests or CI in a way that another contributor can verify.
+- Add tests that assert observable behavior and relevant state changes.
+- Improve CI or developer instructions in a way another contributor can verify.
 
 ## Pull request checklist
 
-- [ ] The example is educational and includes a clear warning if it is intentionally vulnerable.
-- [ ] Tests reproduce the claimed behavior.
-- [ ] The mitigation's scope and limitations are documented.
+- [ ] The change has a clear, limited scope.
+- [ ] Intentionally vulnerable examples are clearly labeled and must not be presented as production-ready.
+- [ ] Tests reproduce the behavior being described.
+- [ ] The mitigation's scope and limitations are documented where relevant.
 - [ ] `forge test -vv` passes locally.
-- [ ] No secrets, API keys, customer reports, or private audit materials are included.
+- [ ] No customer code, private audit reports, credentials, or secrets are included.
 
 ## Security and disclosure
 
