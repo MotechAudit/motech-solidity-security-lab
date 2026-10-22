@@ -34,6 +34,13 @@ The vulnerable example makes an external call before updating its accounting. Th
 - [AccessControl.t.sol](test/AccessControl.t.sol) — demonstrates unauthorized fee redirection and tests the fix.
 - [Case notes](docs/access-control.md) — impact, mitigation, and limitations.
 
+## `tx.origin` authorization example
+
+- [VulnerableTxOriginWallet.sol](src/tx-origin/VulnerableTxOriginWallet.sol) — uses `tx.origin` to authorize withdrawals.
+- [FixedOwnerWallet.sol](src/tx-origin/FixedOwnerWallet.sol) — checks the immediate caller with `msg.sender`.
+- [TxOrigin.t.sol](test/TxOrigin.t.sol) — demonstrates a malicious forwarder and checks the safer authorization pattern.
+- [Case notes](docs/tx-origin.md) — explains the risk and mitigation.
+
 ## Contribute
 
 We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements.
