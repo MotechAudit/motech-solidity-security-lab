@@ -41,11 +41,15 @@ The vulnerable example makes an external call before updating its accounting. Th
 - [TxOrigin.t.sol](test/TxOrigin.t.sol) — demonstrates a malicious forwarder and checks the safer authorization pattern.
 - [Case notes](docs/tx-origin.md) — explains the risk and mitigation.
 
+## Transfer-failure rollback tests
+
+- [TransferFailure.t.sol](test/TransferFailure.t.sol) — checks that rejected ETH transfers revert and preserve vault balances and accounting.
+
 ## Contribute
 
 We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements.
 
-- Start with [Good first issue #3: Test failed ETH transfers and accounting rollback](https://github.com/MotechAudit/motech-solidity-security-lab/issues/3).
+- Start with [Good first issue #4: Add fuzz tests for vault accounting invariants](https://github.com/MotechAudit/motech-solidity-security-lab/issues/4).
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 - Report a bug or suggest an improvement using the repository's **Issues** tab.
 
