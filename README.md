@@ -45,7 +45,7 @@ The vulnerable example makes an external call before updating its accounting. Th
 
 We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements.
 
-- Start with [Good first issue #2: Test access control on fee withdrawals](https://github.com/MotechAudit/motech-solidity-security-lab/issues/2).
+- Start with [Good first issue #3: Test failed ETH transfers and accounting rollback](https://github.com/MotechAudit/motech-solidity-security-lab/issues/3).
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 - Report a bug or suggest an improvement using the repository's **Issues** tab.
 
