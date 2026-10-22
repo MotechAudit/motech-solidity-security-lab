@@ -26,16 +26,17 @@ forge test -vv
 
 The dependency install is local; it does not need to be committed. GitHub Actions also runs the test suite on pushes and pull requests.
 
-## Help improve the lab
+## Make your first contribution
 
-You do not need to be a security expert to make a useful contribution.
+You do not need to be a security expert to help. Pick one small task:
 
-- **First contribution:** start with [Good first issue #4 — Add fuzz tests for vault accounting invariants](https://github.com/MotechAudit/motech-solidity-security-lab/issues/4). Read the acceptance criteria and comment before starting so duplicate work can be avoided.
-- **Found a bug or missing test?** [Open an issue](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose). A clear reproduction or a suggested test is helpful; you do not need to submit code.
-- **Have a fix or example?** Read [CONTRIBUTING.md](CONTRIBUTING.md), run `forge test -vv`, and open a focused pull request. Pair vulnerable behavior with a specific mitigation where relevant, and explain the limits of the example.
-- **Just learning?** Star the repository if you find it useful, then explore a case and its test to see how the behavior is reproduced.
+- **Testing / fuzzing:** [Issue #4 — Add fuzz tests for vault accounting invariants](https://github.com/MotechAudit/motech-solidity-security-lab/issues/4)
+- **Documentation:** [Issue #5 — Write a beginner-friendly reentrancy walkthrough](https://github.com/MotechAudit/motech-solidity-security-lab/issues/5)
+- **A small test:** [Issue #6 — Test empty vault withdrawals](https://github.com/MotechAudit/motech-solidity-security-lab/issues/6)
 
-Good contributions include additional regression or fuzz tests, new self-contained educational examples, clearer case notes, and CI improvements. Small, verifiable pull requests are preferred.
+**Suggested path:** open an issue → comment that you would like to work on it → make a focused change → run `forge test -vv` → open a pull request. You can also [report a bug or suggest a test](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose) without submitting code.
+
+Before contributing, read [CONTRIBUTING.md](CONTRIBUTING.md). Small, verifiable pull requests are preferred. Good contributions include regression or fuzz tests, self-contained educational examples, clearer case notes, and CI improvements.
 
 Please do not submit customer code, confidential audit reports, private findings, secrets, API keys, or credentials.
 
