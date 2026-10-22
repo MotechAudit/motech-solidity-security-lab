@@ -1,14 +1,21 @@
 # Motech Audit — Solidity Security Lab
 
-Open-source Solidity security examples, reproducible tests, and developer learning resources maintained by Motech Audit.
+[![Solidity Tests](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/solidity-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/solidity-tests.yml)
 
-## What's inside
+A practical, test-first lab for understanding common smart-contract security mistakes and checking how a mitigation changes the behavior. Examples are intentionally educational and paired with reproducible Foundry tests.
 
-- **Reentrancy example** — a deliberately vulnerable ETH vault and a minimal mitigation example.
-- **Regression tests** — Foundry tests demonstrating the issue and validating the specific behavior shown by the fix.
-- **Continuous integration** — GitHub Actions runs the test suite on pushes and pull requests.
+**Useful to you?** Give the repository a ⭐ Star so more Solidity builders can find it. Found a gap? Open an Issue. Want to help improve it? Beginner-friendly contributions are welcome.
 
-## Quick start
+## Explore the lab
+
+| Topic | What you can learn | Code and tests |
+| --- | --- | --- |
+| Reentrancy | How calling external code before updating accounting can expose a withdrawal path, and how checks-effects-interactions changes it | [VulnerableVault.sol](src/VulnerableVault.sol) · [FixedVault.sol](src/FixedVault.sol) · [Reentrancy.t.sol](test/Reentrancy.t.sol) |
+| Access control | Why privileged state changes must enforce authorization | [VulnerableFeeVault.sol](src/access-control/VulnerableFeeVault.sol) · [FixedFeeVault.sol](src/access-control/FixedFeeVault.sol) · [AccessControl.t.sol](test/AccessControl.t.sol) · [Case notes](docs/access-control.md) |
+| `tx.origin` authorization | Why authorizing with the original transaction initiator can trust the wrong caller | [VulnerableTxOriginWallet.sol](src/tx-origin/VulnerableTxOriginWallet.sol) · [FixedOwnerWallet.sol](src/tx-origin/FixedOwnerWallet.sol) · [TxOrigin.t.sol](test/TxOrigin.t.sol) · [Case notes](docs/tx-origin.md) |
+| Failed ETH transfers | How reverted transfers should preserve vault balances and accounting | [TransferFailure.t.sol](test/TransferFailure.t.sol) |
+
+## Run the tests
 
 Install [Foundry](https://getfoundry.sh/), then run from the repository root:
 
@@ -17,49 +24,26 @@ forge install foundry-rs/forge-std --no-git
 forge test -vv
 ```
 
-The first command installs the Foundry test helpers locally. It does not need to be committed.
+The dependency install is local; it does not need to be committed. GitHub Actions also runs the test suite on pushes and pull requests.
 
-## Learning example: reentrancy
+## Help improve the lab
 
-- [VulnerableVault.sol](src/VulnerableVault.sol)
-- [FixedVault.sol](src/FixedVault.sol)
-- [Reentrancy.t.sol](test/Reentrancy.t.sol)
+You do not need to be a security expert to make a useful contribution.
 
-The vulnerable example makes an external call before updating its accounting. The mitigation example follows checks-effects-interactions by clearing the caller's recorded balance before transferring ETH.
+- **First contribution:** start with [Good first issue #4 — Add fuzz tests for vault accounting invariants](https://github.com/MotechAudit/motech-solidity-security-lab/issues/4). Read the acceptance criteria and comment before starting so duplicate work can be avoided.
+- **Found a bug or missing test?** [Open an issue](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose). A clear reproduction or a suggested test is helpful; you do not need to submit code.
+- **Have a fix or example?** Read [CONTRIBUTING.md](CONTRIBUTING.md), run `forge test -vv`, and open a focused pull request. Pair vulnerable behavior with a specific mitigation where relevant, and explain the limits of the example.
+- **Just learning?** Star the repository if you find it useful, then explore a case and its test to see how the behavior is reproduced.
 
-## Access-control example
+Good contributions include additional regression or fuzz tests, new self-contained educational examples, clearer case notes, and CI improvements. Small, verifiable pull requests are preferred.
 
-- [VulnerableFeeVault.sol](src/access-control/VulnerableFeeVault.sol) — intentionally omits authorization on a privileged setter.
-- [FixedFeeVault.sol](src/access-control/FixedFeeVault.sol) — restricts fee-recipient changes to the owner.
-- [AccessControl.t.sol](test/AccessControl.t.sol) — demonstrates unauthorized fee redirection and tests the fix.
-- [Case notes](docs/access-control.md) — impact, mitigation, and limitations.
-
-## `tx.origin` authorization example
-
-- [VulnerableTxOriginWallet.sol](src/tx-origin/VulnerableTxOriginWallet.sol) — uses `tx.origin` to authorize withdrawals.
-- [FixedOwnerWallet.sol](src/tx-origin/FixedOwnerWallet.sol) — checks the immediate caller with `msg.sender`.
-- [TxOrigin.t.sol](test/TxOrigin.t.sol) — demonstrates a malicious forwarder and checks the safer authorization pattern.
-- [Case notes](docs/tx-origin.md) — explains the risk and mitigation.
-
-## Transfer-failure rollback tests
-
-- [TransferFailure.t.sol](test/TransferFailure.t.sol) — checks that rejected ETH transfers revert and preserve vault balances and accounting.
-
-## Contribute
-
-We welcome focused contributions: new vulnerability examples, tests that reproduce a concrete security property, clearer remediation notes, and CI improvements.
-
-- Start with [Good first issue #4: Add fuzz tests for vault accounting invariants](https://github.com/MotechAudit/motech-solidity-security-lab/issues/4).
-- Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
-- Report a bug or suggest an improvement using the repository's **Issues** tab.
-
-Please do not submit customer code, confidential audit reports, private findings, secrets, or API keys.
+Please do not submit customer code, confidential audit reports, private findings, secrets, API keys, or credentials.
 
 ## Scope and disclaimer
 
-This is an educational repository, not a production-ready contract library and not a complete security audit. The examples are intentionally simplified. A passing test suite does not prove a contract is secure, and the mitigation shown here does not replace a full review of external-call paths, access controls, accounting, dependencies, and business logic.
+This is an educational repository, not a production-ready contract library and not a complete security audit. The examples are intentionally simplified. A passing test suite does not prove a contract is secure, and a mitigation shown here does not replace a context-specific review of external-call paths, access controls, accounting, dependencies, and business logic.
 
-Do not deploy the vulnerable example or use these snippets to assess a production contract without an independent, context-specific review.
+Do not deploy vulnerable examples or use these snippets to assess a production contract without an independent, context-specific review.
 
 ## About Motech Audit
 
