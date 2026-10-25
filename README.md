@@ -15,6 +15,7 @@ A practical, test-first lab for understanding common smart-contract security mis
 | `tx.origin` authorization | Why authorizing with the original transaction initiator can trust the wrong caller | [VulnerableTxOriginWallet.sol](src/tx-origin/VulnerableTxOriginWallet.sol) · [FixedOwnerWallet.sol](src/tx-origin/FixedOwnerWallet.sol) · [TxOrigin.t.sol](test/TxOrigin.t.sol) · [Case notes](docs/tx-origin.md) |
 | Failed ETH transfers | How reverted transfers should preserve vault balances and accounting | [TransferFailure.t.sol](test/TransferFailure.t.sol) |
 | Vault accounting fuzzing | How fuzz tests can probe deposits, withdrawals, and per-user accounting invariants | [VaultAccountingFuzz.t.sol](test/VaultAccountingFuzz.t.sol) |
+| Empty withdrawal edge cases | How reverts and per-user accounting protect other depositors' funds | [EmptyWithdrawal.t.sol](test/EmptyWithdrawal.t.sol) |
 
 ## Run the tests
 
@@ -33,7 +34,6 @@ You do not need to be a security expert to help. Pick one small task:
 
 - **Testing / fuzzing:** [Issue #8 — Extend fuzz coverage across multiple deposits and users](https://github.com/MotechAudit/motech-solidity-security-lab/issues/8)
 - **Documentation:** [Issue #5 — Write a beginner-friendly reentrancy walkthrough](https://github.com/MotechAudit/motech-solidity-security-lab/issues/5)
-- **A small test:** [Issue #6 — Test empty vault withdrawals](https://github.com/MotechAudit/motech-solidity-security-lab/issues/6)
 
 **Suggested path:** open an issue → comment that you would like to work on it → make a focused change → run `forge test -vv` → open a pull request. You can also [report a bug or suggest a test](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose) without submitting code.
 
