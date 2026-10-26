@@ -2,6 +2,8 @@
 
 Thanks for helping improve the Motech Audit Solidity Security Lab. The goal is to make smart-contract security lessons practical, reproducible, and easy for other developers to verify.
 
+Before participating, please review our [Code of Conduct](CODE_OF_CONDUCT.md) and [Security Policy](SECURITY.md).
+
 ## A simple first contribution
 
 1. Pick a task from the repository's [open issues](https://github.com/MotechAudit/motech-solidity-security-lab/issues), ideally one marked **good first issue**.
