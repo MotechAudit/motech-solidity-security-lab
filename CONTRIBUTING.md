@@ -31,7 +31,7 @@ Not every contribution needs to add code. Clear reproduction steps, documentatio
 
 ## Security and disclosure
 
-Do not submit client-confidential code, private audit reports, credentials, or live exploitable details about an unpatched third-party target. For sensitive disclosures, use the project's designated private contact channel rather than a public issue.
+Do not post security-sensitive details in a public Issue, Discussion, or Pull Request. Follow the repository's [Security Policy](SECURITY.md) for private disclosure instructions. Do not submit client-confidential code, private audit reports, credentials, or live exploitable details about an unpatched third-party target.
 
 ## Important
 
