@@ -48,7 +48,7 @@ jobs:
           name: slither-static-analysis-report
           path: slither-results.sarif
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 30
 
       - name: Explain report scope
         if: success()
