@@ -1,0 +1,59 @@
+name: Slither Static Analysis
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  slither:
+    name: Slither analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+
+      - name: Install test dependency
+        run: forge install foundry-rs/forge-std --no-git
+
+      - name: Compile contracts and generate build info
+        run: forge build --build-info --force
+
+      - name: Run Slither
+        id: slither
+        uses: crytic/slither-action@v0.4.2
+        with:
+          target: .
+          ignore-compile: true
+          sarif: slither-results.sarif
+          fail-on: none
+
+      - name: Upload Slither report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slither-static-analysis-report
+          path: slither-results.sarif
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Explain report scope
+        if: success()
+        run: |
+          {
+            echo "### Slither static analysis"
+            echo
+            echo "The SARIF report is available as the `slither-static-analysis-report` workflow artifact."
+            echo
+            echo "This repository intentionally contains vulnerable educational examples. Slither findings must be reviewed in that context and are not automatically treated as production vulnerabilities."
+            echo
+            echo "This workflow checks compilation and analyzer execution. It does not block on detected findings; reviewers should triage the report and correlate it with Foundry tests and manual review."
+          } >> "$GITHUB_STEP_SUMMARY"
