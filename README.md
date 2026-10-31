@@ -1,6 +1,7 @@
 # Motech Audit — Solidity Security Lab
 
 [![Solidity Tests](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/solidity-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/solidity-tests.yml)
+[![Slither Analysis](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/slither-analysis.yml/badge.svg)](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/slither-analysis.yml)
 
 A practical, test-first lab for understanding common smart-contract security mistakes and checking how a mitigation changes the behavior. Examples are intentionally educational and paired with reproducible Foundry tests.
 
@@ -27,6 +28,14 @@ forge test -vv
 ```
 
 The dependency install is local; it does not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 15 passing tests, including two fuzz tests.
+
+## Static analysis with Slither
+
+A separate GitHub Actions workflow runs Slither on the compiled Solidity examples under `src/`. It excludes Foundry tests and scripts from the analysis build and exports a SARIF report as a downloadable workflow artifact.
+
+The workflow is intentionally non-blocking on findings because this lab includes contracts that are vulnerable by design. A successful Slither run means compilation and analysis completed; it does **not** mean that no findings were detected or that the contracts are secure. Review findings in context and compare them with the paired Foundry tests and the documented mitigations.
+
+See the [Slither workflow and its reports](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/slither-analysis.yml).
 
 ## Make your first contribution
 
