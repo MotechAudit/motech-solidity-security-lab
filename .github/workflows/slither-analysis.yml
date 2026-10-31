@@ -21,22 +21,25 @@ jobs:
         with:
           version: stable
 
-      # Slither analyzes the production examples under src/. Do not compile
-      # Foundry tests or scripts here: their forge-std dependency introduces
-      # generated foundry-pp helper sources that Slither cannot resolve.
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Slither
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install slither-analyzer==0.11.6
+
+      # Analyze production examples under src/ only. Exclude tests and scripts
+      # from build-info so Foundry's generated test helpers are not passed to Slither.
       - name: Compile Solidity source contracts only
         run: |
           forge clean
           forge build --build-info --skip test script --force
 
-      - name: Run Slither
-        id: slither
-        uses: crytic/slither-action@v0.4.2
-        with:
-          target: .
-          ignore-compile: true
-          sarif: slither-results.sarif
-          fail-on: none
+      - name: Run Slither against Foundry build info
+        run: slither . --ignore-compile --sarif slither-results.sarif --fail-none --disable-color
 
       - name: Upload Slither report
         if: always()
@@ -55,7 +58,7 @@ jobs:
             echo
             echo "The SARIF report is available as the `slither-static-analysis-report` workflow artifact."
             echo
-            echo "The analyzer scans production examples under `src/` only. Foundry tests and scripts are intentionally excluded from this compilation step."
+            echo "The analyzer scans compiled production examples from `src/`. Foundry tests and scripts are excluded from the analysis build."
             echo
             echo "This repository intentionally contains vulnerable educational examples. Findings must be reviewed in that context and are not automatically treated as production vulnerabilities."
             echo
