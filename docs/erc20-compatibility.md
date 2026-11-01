@@ -1,5 +1,7 @@
 # ERC-20 compatibility: return values and approvals
 
+The examples use OpenZeppelin Contracts v5.6.1 and import its `SafeERC20` implementation rather than reimplementing the compatibility checks.
+
 ERC-20 integrations cannot assume every deployed token behaves identically at the ABI boundary.
 
 ## Optional return data
