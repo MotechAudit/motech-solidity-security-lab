@@ -51,6 +51,11 @@ You do not need to be a security expert to help. Choose a task that fits your ex
 
 - **Solidity security lab:** [Issue #16 — Add a delegatecall storage-collision example](https://github.com/MotechAudit/motech-solidity-security-lab/issues/16)
 
+### Have another idea?
+
+- **Propose a security case:** [Issue #19 — Tell us what we should build next](https://github.com/MotechAudit/motech-solidity-security-lab/issues/19)
+- **Use the structured proposal form:** [Suggest a security lab case](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new?template=security_case_proposal.yml)
+
 **Suggested path:** open an issue → comment that you would like to work on it → make a focused change → run `forge test -vv` → open a pull request. You can also [report a bug or suggest a test](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose) without submitting code.
 
 Read the [Community Guide](docs/COMMUNITY_GUIDE.md) to understand the participation process and how merged contributions are recognised. Substantive external contributions are recorded in [CONTRIBUTORS.md](CONTRIBUTORS.md).
