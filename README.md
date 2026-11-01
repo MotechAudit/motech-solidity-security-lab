@@ -53,6 +53,8 @@ You do not need to be a security expert to help. Choose a task that fits your ex
 
 **Suggested path:** open an issue → comment that you would like to work on it → make a focused change → run `forge test -vv` → open a pull request. You can also [report a bug or suggest a test](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose) without submitting code.
 
+Read the [Community Guide](docs/COMMUNITY_GUIDE.md) to understand the participation process and how merged contributions are recognised. Substantive external contributions are recorded in [CONTRIBUTORS.md](CONTRIBUTORS.md).
+
 Before contributing, read [CONTRIBUTING.md](CONTRIBUTING.md). For community expectations, read our [Code of Conduct](CODE_OF_CONDUCT.md). For security-sensitive reports, follow our [Security Policy](SECURITY.md) instead of posting exploit details publicly.
 
 Please do not submit customer code, confidential audit reports, private findings, secrets, API keys, or credentials.
