@@ -15,7 +15,7 @@ You do not need to be a professional auditor to contribute. We value small, veri
 ## How to get started
 
 1. Browse the [open Issues](https://github.com/MotechAudit/motech-solidity-security-lab/issues).
-2. Start with an Issue marked `good first issue`, or propose a narrowly scoped task.
+2. Start with an Issue marked `good first issue`, or propose a narrowly scoped task using the [security-case proposal form](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new?template=security_case_proposal.yml).
 3. Comment on the Issue before beginning. Maintainers can confirm scope and help avoid duplicate work.
 4. Submit one focused Pull Request and explain what changed and how it was verified.
 5. Respond to review feedback and update the Pull Request as needed.

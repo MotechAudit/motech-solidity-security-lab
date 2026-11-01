@@ -3,6 +3,9 @@ contact_links:
   - name: Browse beginner-friendly contribution tasks
     url: https://github.com/MotechAudit/motech-solidity-security-lab/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
     about: Start with a small documentation or testing task.
+  - name: Suggest a new security lab case
+    url: https://github.com/MotechAudit/motech-solidity-security-lab/issues/new?template=security_case_proposal.yml
+    about: Propose a reproducible educational security example or test idea.
   - name: Browse all open project tasks
     url: https://github.com/MotechAudit/motech-solidity-security-lab/issues
     about: Explore current tasks or propose a focused improvement.

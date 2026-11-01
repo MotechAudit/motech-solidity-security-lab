@@ -27,7 +27,7 @@ forge install foundry-rs/forge-std --no-git
 forge test -vv
 ```
 
-The dependency install is local; it does not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 15 passing tests, including two fuzz tests.
+The dependency install is local; it does not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 18 passing tests, including five fuzz tests.
 
 ## Static analysis with Slither
 
@@ -50,6 +50,11 @@ You do not need to be a security expert to help. Choose a task that fits your ex
 ### Intermediate
 
 - **Solidity security lab:** [Issue #16 — Add a delegatecall storage-collision example](https://github.com/MotechAudit/motech-solidity-security-lab/issues/16)
+
+### Have another idea?
+
+- **Propose a security case:** [Issue #19 — Tell us what we should build next](https://github.com/MotechAudit/motech-solidity-security-lab/issues/19)
+- **Use the structured proposal form:** [Suggest a security lab case](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new?template=security_case_proposal.yml)
 
 **Suggested path:** open an issue → comment that you would like to work on it → make a focused change → run `forge test -vv` → open a pull request. You can also [report a bug or suggest a test](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose) without submitting code.
 
