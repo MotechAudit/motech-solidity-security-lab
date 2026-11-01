@@ -1,0 +1,58 @@
+name: Propose a security lab case
+description: Suggest a focused, reproducible smart-contract security example or test idea.
+title: "[Case proposal]: "
+labels: ["help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping shape the Motech Audit Solidity Security Lab.
+
+        Please propose an educational case that can be discussed and reproduced safely. Do not disclose customer material, private audit findings, secrets, or exploitable details about an unpatched live target. Use the repository Security Policy for sensitive reports.
+  - type: input
+    id: topic
+    attributes:
+      label: Security topic
+      description: Name the vulnerability pattern, edge case, or secure coding topic.
+      placeholder: e.g. Signature replay, storage collision, oracle manipulation
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario and preconditions
+      description: Explain the simplified setup and what must be true for the behavior to occur.
+      placeholder: Describe the actors, contract state, and relevant call sequence.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_test
+    attributes:
+      label: What should a Foundry test demonstrate?
+      description: Describe the observable behavior or invariant the test should assert.
+    validations:
+      required: true
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Suggested mitigation or comparison
+      description: Explain what corrected behavior or alternative design should be compared.
+      placeholder: Include limitations and assumptions where relevant.
+    validations:
+      required: false
+  - type: textarea
+    id: references
+    attributes:
+      label: Public references
+      description: Link public documentation, standards, or research that supports the proposal.
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety and scope
+      options:
+        - label: I confirm this proposal does not contain customer-confidential material, credentials, or sensitive exploit details for an unpatched live target.
+          required: true
+        - label: I understand this repository is an educational lab, not a production audit or a guarantee of security.
+          required: true
