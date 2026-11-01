@@ -39,10 +39,17 @@ See the [Slither workflow and its reports](https://github.com/MotechAudit/motech
 
 ## Make your first contribution
 
-You do not need to be a security expert to help. Pick one small task:
+You do not need to be a security expert to help. Choose a task that fits your experience:
 
-- **Testing / fuzzing:** [Issue #8 — Extend fuzz coverage across multiple deposits and users](https://github.com/MotechAudit/motech-solidity-security-lab/issues/8)
+### Beginner-friendly
+
 - **Documentation:** [Issue #5 — Write a beginner-friendly reentrancy walkthrough](https://github.com/MotechAudit/motech-solidity-security-lab/issues/5)
+- **Testing:** [Issue #14 — Add edge-case tests for FixedOwnerWallet](https://github.com/MotechAudit/motech-solidity-security-lab/issues/14)
+- **Static analysis docs:** [Issue #15 — Explain how to read Slither SARIF results](https://github.com/MotechAudit/motech-solidity-security-lab/issues/15)
+
+### Intermediate
+
+- **Solidity security lab:** [Issue #16 — Add a delegatecall storage-collision example](https://github.com/MotechAudit/motech-solidity-security-lab/issues/16)
 
 **Suggested path:** open an issue → comment that you would like to work on it → make a focused change → run `forge test -vv` → open a pull request. You can also [report a bug or suggest a test](https://github.com/MotechAudit/motech-solidity-security-lab/issues/new/choose) without submitting code.
 
