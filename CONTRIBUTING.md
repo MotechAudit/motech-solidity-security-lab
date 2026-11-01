@@ -2,7 +2,7 @@
 
 Thanks for helping improve the Motech Audit Solidity Security Lab. The goal is to make smart-contract security lessons practical, reproducible, and easy for other developers to verify.
 
-Before participating, please review our [Code of Conduct](CODE_OF_CONDUCT.md) and [Security Policy](SECURITY.md).
+Before participating, please review our [Code of Conduct](CODE_OF_CONDUCT.md) and [Security Policy](SECURITY.md). The [Community Guide](docs/COMMUNITY_GUIDE.md) explains the ways to participate and what happens after a contribution is merged.
 
 ## A simple first contribution
 
@@ -30,6 +30,12 @@ Not every contribution needs to add code. Clear reproduction steps, documentatio
 - [ ] The mitigation's scope and limitations are documented where relevant.
 - [ ] `forge test -vv` passes locally.
 - [ ] No customer code, private audit reports, credentials, or secrets are included.
+
+## Recognition
+
+Substantive externally authored contributions are listed in [CONTRIBUTORS.md](CONTRIBUTORS.md) after they have been reviewed and merged. Entries link to the original pull request and describe only the work that was merged.
+
+This recognition is not an employment relationship, paid bounty, certification, endorsement, or representation that a contributor is affiliated with Motech Audit. No standing bounty or payment programme is offered. Any future paid reward will be stated explicitly on the relevant Issue before work begins.
 
 ## Security and disclosure
 
