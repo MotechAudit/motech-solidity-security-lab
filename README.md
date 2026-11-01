@@ -27,7 +27,7 @@ forge install foundry-rs/forge-std --no-git
 forge test -vv
 ```
 
-The dependency install is local; it does not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 15 passing tests, including two fuzz tests.
+The dependency install is local; it does not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 18 passing tests, including five fuzz tests.
 
 ## Static analysis with Slither
 
