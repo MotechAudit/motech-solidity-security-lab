@@ -18,8 +18,11 @@ jobs:
         with:
           version: stable
 
-      - name: Install test dependency
+      - name: Install Foundry test dependency
         run: forge install foundry-rs/forge-std --no-git
+
+      - name: Install pinned OpenZeppelin dependency
+        run: forge install OpenZeppelin/openzeppelin-contracts@v5.2.0 --no-git
 
       - name: Run unit and fuzz tests
         run: forge test -vv --fuzz-runs 1000
