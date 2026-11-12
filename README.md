@@ -2,6 +2,7 @@
 
 [![Solidity Tests](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/solidity-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/solidity-tests.yml)
 [![Slither Analysis](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/slither-analysis.yml/badge.svg)](https://github.com/MotechAudit/motech-solidity-security-lab/actions/workflows/slither-analysis.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/MotechAudit/motech-solidity-security-lab/badge)](https://scorecard.dev/viewer/?uri=github.com/MotechAudit/motech-solidity-security-lab)
 
 A practical, test-first lab for understanding common smart-contract security mistakes and checking how a mitigation changes the behavior. Examples are intentionally educational and paired with reproducible Foundry tests.
 
@@ -69,6 +70,14 @@ Please do not submit customer code, confidential audit reports, private findings
 This is an educational repository, not a production-ready contract library and not a complete security audit. The examples are intentionally simplified. A passing test suite does not prove a contract is secure, and a mitigation shown here does not replace a context-specific review of external-call paths, access controls, accounting, dependencies, and business logic.
 
 Do not deploy vulnerable examples or use these snippets to assess a production contract without an independent, context-specific review.
+
+## License
+
+The repository's original educational examples and documentation are licensed under the [MIT License](LICENSE). Third-party dependencies remain under their respective licenses. See individual files and dependency notices for additional attribution.
+
+## Repository governance
+
+See [Repository Governance](docs/REPOSITORY_GOVERNANCE.md) for maintainer ownership, recommended branch rules, private disclosure settings, and automated security checks. The OpenSSF Scorecard badge links to the latest published assessment; it is not an audit or certification.
 
 ## About Motech Audit
 
