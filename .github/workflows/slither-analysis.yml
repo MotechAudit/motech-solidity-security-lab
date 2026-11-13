@@ -31,6 +31,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install slither-analyzer==0.11.6
 
+      # Install the OpenZeppelin dependency used by src/ examples.
+      - name: Install OpenZeppelin dependency
+        run: forge install OpenZeppelin/openzeppelin-contracts@v5.0.2 --no-git
+
       # Analyze production examples under src/ only. Exclude tests and scripts
       # from build-info so Foundry's generated test helpers are not passed to Slither.
       - name: Compile Solidity source contracts only

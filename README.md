@@ -17,6 +17,7 @@ A practical, test-first lab for understanding common smart-contract security mis
 | Failed ETH transfers | How reverted transfers should preserve vault balances and accounting | [TransferFailure.t.sol](test/TransferFailure.t.sol) |
 | Vault accounting fuzzing | How fuzz tests can probe deposits, withdrawals, and per-user accounting invariants | [VaultAccountingFuzz.t.sol](test/VaultAccountingFuzz.t.sol) |
 | Empty withdrawal edge cases | How reverts and per-user accounting protect other depositors' funds | [EmptyWithdrawal.t.sol](test/EmptyWithdrawal.t.sol) |
+| Unchecked ERC-20 transfer return values | Why a payout must not assume `transfer` moved tokens when it returns `false` | [VulnerableTokenPayout.sol](src/erc20-transfer/VulnerableTokenPayout.sol) · [FixedTokenPayout.sol](src/erc20-transfer/FixedTokenPayout.sol) · [MockTokens.sol](src/erc20-transfer/MockTokens.sol) · [UncheckedERC20Transfer.t.sol](test/UncheckedERC20Transfer.t.sol) · [Case notes](docs/unchecked-erc20-transfer.md) |
 
 ## Run the tests
 
@@ -24,10 +25,11 @@ Install [Foundry](https://getfoundry.sh/), then run from the repository root:
 
 ```bash
 forge install foundry-rs/forge-std --no-git
+forge install OpenZeppelin/openzeppelin-contracts@v5.0.2 --no-git
 forge test -vv
 ```
 
-The dependency install is local; it does not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 18 passing tests, including five fuzz tests.
+The dependency installs are local; they do not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 24 passing tests, including five fuzz tests.
 
 ## Static analysis with Slither
 
