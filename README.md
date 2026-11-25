@@ -34,6 +34,10 @@ forge test -vv
 
 The dependency installs are local; they do not need to be committed. OpenZeppelin Contracts is pinned to v5.6.1 for reproducible ERC-20 compatibility examples. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. Check the latest GitHub Actions output for the current test and fuzz-case totals.
 
+## Contract interface reference
+
+The [Solidity External Interface Reference](docs/API_REFERENCE.md) documents the constructors, externally callable functions, public getters, inputs, outputs, access controls, state changes, events, and failure conditions of the educational contracts under `src/`.
+
 ## Static analysis with Slither
 
 A separate GitHub Actions workflow runs Slither on the compiled Solidity examples under `src/`. It excludes Foundry tests and scripts from the analysis build and exports a SARIF report as a downloadable workflow artifact.
