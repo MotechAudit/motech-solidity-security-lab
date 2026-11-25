@@ -17,6 +17,7 @@ A practical, test-first lab for understanding common smart-contract security mis
 | Failed ETH transfers | How reverted transfers should preserve vault balances and accounting | [TransferFailure.t.sol](test/TransferFailure.t.sol) |
 | Vault accounting fuzzing | How fuzz tests can probe deposits, withdrawals, and per-user accounting invariants | [VaultAccountingFuzz.t.sol](test/VaultAccountingFuzz.t.sol) |
 | Empty withdrawal edge cases | How reverts and per-user accounting protect other depositors' funds | [EmptyWithdrawal.t.sol](test/EmptyWithdrawal.t.sol) |
+| Delegatecall storage collision | How delegatecall executes against the caller's storage and why incompatible layouts can corrupt state | [StorageCollisionModule.sol](src/delegatecall/StorageCollisionModule.sol) · [VulnerableDelegateCaller.sol](src/delegatecall/VulnerableDelegateCaller.sol) · [FixedExternalCaller.sol](src/delegatecall/FixedExternalCaller.sol) · [DelegatecallStorageCollision.t.sol](test/DelegatecallStorageCollision.t.sol) · [Case notes](docs/delegatecall-storage-collision.md) |
 
 ## Run the tests
 
