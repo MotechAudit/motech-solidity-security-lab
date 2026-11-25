@@ -32,7 +32,7 @@ forge install OpenZeppelin/openzeppelin-contracts@v5.6.1 --no-git
 forge test -vv
 ```
 
-The dependency installs are local; they do not need to be committed. OpenZeppelin Contracts is pinned to v5.6.1 for reproducible ERC-20 compatibility examples. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 18 passing tests, including five fuzz tests.
+The dependency installs are local; they do not need to be committed. OpenZeppelin Contracts is pinned to v5.6.1 for reproducible ERC-20 compatibility examples. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. Check the latest GitHub Actions output for the current test and fuzz-case totals.
 
 ## Static analysis with Slither
 
