@@ -25,6 +25,9 @@ jobs:
         with:
           version: stable
 
+      - name: Install pinned OpenZeppelin dependency
+        run: forge install OpenZeppelin/openzeppelin-contracts@v5.6.1 --no-git
+
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:

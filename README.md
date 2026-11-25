@@ -17,6 +17,7 @@ A practical, test-first lab for understanding common smart-contract security mis
 | `tx.origin` authorization | Why authorizing with the original transaction initiator can trust the wrong caller | [VulnerableTxOriginWallet.sol](src/tx-origin/VulnerableTxOriginWallet.sol) · [FixedOwnerWallet.sol](src/tx-origin/FixedOwnerWallet.sol) · [TxOrigin.t.sol](test/TxOrigin.t.sol) · [Case notes](docs/tx-origin.md) |
 | Failed ETH transfers | How reverted transfers should preserve vault balances and accounting | [TransferFailure.t.sol](test/TransferFailure.t.sol) |
 | Fee-on-transfer ERC-20 accounting | Why vaults must credit the actual tokens received instead of the requested transfer amount | [VulnerableFeeOnTransferVault.sol](src/erc20/VulnerableFeeOnTransferVault.sol) · [FixedFeeOnTransferVault.sol](src/erc20/FixedFeeOnTransferVault.sol) · [FeeOnTransferAccounting.t.sol](test/FeeOnTransferAccounting.t.sol) · [Case notes](docs/fee-on-transfer.md) |
+| ERC-20 compatibility | How SafeERC20 handles false/no return data, balance-delta deposits, and `forceApprove` for zero-first tokens | [SafeERC20CompatibilityVault.sol](src/erc20/SafeERC20CompatibilityVault.sol) · [SafeAllowanceManager.sol](src/erc20/SafeAllowanceManager.sol) · [ERC20Compatibility.t.sol](test/ERC20Compatibility.t.sol) · [Case notes](docs/erc20-compatibility.md) |
 | Vault accounting fuzzing | How fuzz tests can probe deposits, withdrawals, and per-user accounting invariants | [VaultAccountingFuzz.t.sol](test/VaultAccountingFuzz.t.sol) |
 | Empty withdrawal edge cases | How reverts and per-user accounting protect other depositors' funds | [EmptyWithdrawal.t.sol](test/EmptyWithdrawal.t.sol) |
 | Delegatecall storage collision | How delegatecall executes against the caller's storage and why incompatible layouts can corrupt state | [StorageCollisionModule.sol](src/delegatecall/StorageCollisionModule.sol) · [VulnerableDelegateCaller.sol](src/delegatecall/VulnerableDelegateCaller.sol) · [FixedExternalCaller.sol](src/delegatecall/FixedExternalCaller.sol) · [DelegatecallStorageCollision.t.sol](test/DelegatecallStorageCollision.t.sol) · [Case notes](docs/delegatecall-storage-collision.md) |
@@ -27,10 +28,11 @@ Install [Foundry](https://getfoundry.sh/), then run from the repository root:
 
 ```bash
 forge install foundry-rs/forge-std --no-git
+forge install OpenZeppelin/openzeppelin-contracts@v5.6.1 --no-git
 forge test -vv
 ```
 
-The dependency install is local; it does not need to be committed. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 18 passing tests, including five fuzz tests.
+The dependency installs are local; they do not need to be committed. OpenZeppelin Contracts is pinned to v5.6.1 for reproducible ERC-20 compatibility examples. GitHub Actions runs the suite on pushes and pull requests using `forge test -vv --fuzz-runs 1000`. This runs 1,000 fuzz cases for each Foundry fuzz test. The current suite contains 18 passing tests, including five fuzz tests.
 
 ## Static analysis with Slither
 
