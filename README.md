@@ -38,6 +38,10 @@ The dependency installs are local; they do not need to be committed. OpenZeppeli
 
 The project uses Semantic Versioning (SemVer) with release tags in the `vMAJOR.MINOR.PATCH` format. Human-readable changes and upgrade notes are maintained in [CHANGELOG.md](CHANGELOG.md). Published versions will be available from [GitHub Releases](https://github.com/MotechAudit/motech-solidity-security-lab/releases).
 
+## AI-assisted security review
+
+For structured AI-assisted Solidity reviews and focused vulnerability-detection workflows, see [Motech Audit Security Skills](https://github.com/MotechAudit/motech-audit-security-skills). The Skills repository provides agent instructions and evidence-based review workflows; this repository remains the separate source of educational Solidity fixtures, Foundry tests, and Slither analysis. Using a Skill does not automatically run these Lab tests. See the [Skills-to-Lab integration guide](https://github.com/MotechAudit/motech-audit-security-skills/blob/main/docs/security-lab-integration.md) for the topic map and recommended workflow.
+
 ## Contract interface reference
 
 The [Solidity External Interface Reference](docs/API_REFERENCE.md) documents the constructors, externally callable functions, public getters, inputs, outputs, access controls, state changes, events, and failure conditions of the educational contracts under `src/`.
