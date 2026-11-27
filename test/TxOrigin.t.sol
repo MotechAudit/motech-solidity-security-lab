@@ -58,4 +58,32 @@ contract TxOriginTest is Test {
         assertEq(address(wallet).balance, FUNDS, "wallet funds should remain");
         assertEq(ATTACKER.balance, attackerBalanceBefore, "attacker should receive nothing");
     }
+
+    function testWithdrawToZeroAddressRevertsWithInvalidRecipient() public {
+        FixedOwnerWallet wallet = new FixedOwnerWallet();
+        address payable recipient = payable(address(0xCAFE));
+
+        vm.deal(address(wallet), FUNDS);
+        uint256 recipientBalanceBefore = recipient.balance;
+
+        vm.expectRevert(FixedOwnerWallet.InvalidRecipient.selector);
+        wallet.withdrawTo(payable(address(0)), 1 ether);
+
+        assertEq(address(wallet).balance, FUNDS, "wallet funds should remain");
+        assertEq(recipient.balance, recipientBalanceBefore, "recipient should receive nothing");
+    }
+
+    function testWithdrawMoreThanBalanceRevertsWithTransferFailed() public {
+        FixedOwnerWallet wallet = new FixedOwnerWallet();
+        address payable recipient = payable(address(0xCAFE));
+
+        vm.deal(address(wallet), FUNDS);
+        uint256 recipientBalanceBefore = recipient.balance;
+
+        vm.expectRevert(FixedOwnerWallet.TransferFailed.selector);
+        wallet.withdrawTo(recipient, FUNDS + 1 ether);
+
+        assertEq(address(wallet).balance, FUNDS, "wallet funds should remain");
+        assertEq(recipient.balance, recipientBalanceBefore, "recipient should receive nothing");
+    }
 }
